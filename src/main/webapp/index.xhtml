@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Guia 09</title>
+    </h:head>
+    <h:body>
+        <h:form id="form">
+            <p:dataTable var="t" value="#{tipoVehiculoBean.lazyModel}" paginator="true" rows="5" paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+                         selectionMode="single" selection="#{tipoVehiculoBean.selectedTipoVehiculo}" id="carTable" lazy="true">
+                <p:ajax event="rowSelect" listener="#{tipoVehiculoBean.onRowSelect}"/>
+                <p:column headerText="Id" sortBy="#{t.idTipoVehiculo}">
+                    <h:outputText value="#{t.idTipoVehiculo}" />
+                </p:column>
+                <p:column headerText="Nombre" sortBy="#{t.nombre}">
+                    <h:outputText value="#{t.nombre}" />
+                </p:column>
+                <p:column headerText="Peso mn" sortBy="#{t.pesoMinLbs}">
+                    <h:outputText value="#{t.pesoMinLbs}" />
+                </p:column>
+                <p:column headerText="Peso max" sortBy="#{t.pesoMaxLbs}">
+                    <h:outputText value="#{t.pesoMaxLbs}" />
+                </p:column>
+                <p:column headerText="Ejes" sortBy="#{t.cantidadEjes} ">
+                    <h:outputText value="#{t.cantidadEjes}" />
+                </p:column>
+                <p:column headerText="Ejes" sortBy="#{t.activo} ">
+                    <h:outputText value="#{t.activo}" />
+                </p:column>
+                <p:column headerText="Descripcion" sortBy="#{t.descripcion} ">
+                    <h:outputText value="#{t.descripcion}" />
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </h:body>
+</html>
+
